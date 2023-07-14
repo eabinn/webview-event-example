@@ -2,6 +2,8 @@ import React, { useCallback, useEffect, useMemo } from "react";
 import logo from "./logo.svg";
 import "./App.css";
 
+// window.dispatchEvent(new CustomEvent('android-set-token', {detail: {data: { access: 'aaaa', refresh: 'bbbb'} } }))
+
 declare const android: {
   passValue: (value: string) => void;
   getValue: () => void;
@@ -38,7 +40,7 @@ function App() {
   const webviewUtils = useMemo(() => utils(), []);
 
   const handler = useCallback((e: any) => {
-    console.log("DISPATCHED android set token", e);
+    console.log("DISPATCHED android set token", e, e.data ?? "noway");
   }, []);
 
   useEffect(() => {
