@@ -38,7 +38,7 @@ function App() {
   const webviewUtils = useMemo(() => utils(), []);
 
   const handler = useCallback((e: any) => {
-    console.log("DISPATCHED android set token", e.detail.data);
+    console.log("DISPATCHED android set token", e);
   }, []);
 
   useEffect(() => {
